@@ -1,7 +1,23 @@
-<h1>Add a Bookmark</h1>
+<div class="navbar-lewagon d-flex">
+  <%= image_tag "icon-2.png", alt: "Film Photo Icon",  width: 80, class: "navbar-brand img" %>
+  <div>
+    <%= link_to "My Lists", lists_path, class: "btn text-light" %>
+    <%= link_to "New List", new_list_path, class: "btn text-light" %>
+  </div>
+</div>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit %>
-<% end %>
+<div class="container m-5 p-2 w-100" data-controller="bookmark">
+  <h1>Add a Bookmark</h1>
+
+  <div class="row">
+    <div class="col-5">
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie, input_html: { data: { action: "change->bookmark#fetch"} }%>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="fs-4 col-5 card-bookmark-new m-3 border movie-card d-flex justify-content-center" data-bookmark-target="movie">
+    </div>
+  </div>
+</div>

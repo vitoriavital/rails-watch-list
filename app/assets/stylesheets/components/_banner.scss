@@ -1,0 +1,28 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px;
+}
+
+.banner h1 {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgba(96, 96, 96, 0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(96, 96, 96, 0.2);
+}
+
+.banner .container {
+  z-index: 30;
+}
+
+.banner img {
+  top: 0;
+}

@@ -21,9 +21,20 @@ class BookmarksController < ApplicationController
     redirect_to list_path(@bookmark.list), status: :see_other
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+    if @movie
+      respond_to do |format|
+        format.json { render json: @movie}
+        # format.html { redirect_to lists_path}
+      end
+    end
+    @movie
+  end
+
   private
 
-  def bookmark_params
+  def movie_params
     params.require(:bookmark).permit(:comment, :movie_id)
   end
 end
